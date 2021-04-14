@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [ $# -lt 3 ]; then
+    echo "Usage: $0 <low port #> <high port #> <command...>"
+    exit 1
+fi
+
+LD_PRELOAD=/usr/local/lib/ephemerator.so
+export LD_PRELOAD
+
+EPHEMERAL_PORTS="$1 $2"
+export EPHEMERAL_PORTS
+shift; shift
+
+exec "$@"
+

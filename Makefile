@@ -1,5 +1,5 @@
 
-CFLAGS = -Wall
+CFLAGS = -Wall -fPIC
 
 ephemerator.so : ephemerator.o
 	$(CC) -shared $(CFLAGS) $(LDFLAGS) $< -o $@
